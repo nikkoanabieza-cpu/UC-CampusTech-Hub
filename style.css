@@ -1,0 +1,172 @@
+/* =========================
+   ORDER STATUS
+========================= */
+
+.status-section {
+    background: #fff3e6;
+    min-height: 600px;
+}
+
+.status-container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.status-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* ORDER NUMBER */
+
+.status-order-number {
+    background: #fff3e6;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    color: #8b4513;
+    margin-bottom: 25px;
+}
+
+.status-order-number strong {
+    color: #f58220;
+    font-size: 20px;
+}
+
+/* CURRENT STATUS MESSAGE */
+
+.status-card > h3 {
+    text-align: center;
+    color: #8b4513;
+    margin-bottom: 30px;
+}
+
+/* TIMELINE */
+
+.status-timeline {
+    margin: 20px 0;
+}
+
+/* STATUS STEP */
+
+.status-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px 0;
+    opacity: 0.4;
+    transition: 0.3s ease;
+}
+
+.status-step.active {
+    opacity: 1;
+}
+
+/* STATUS CIRCLE */
+
+.status-circle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* ACTIVE CIRCLE */
+
+.status-step.active .status-circle {
+    background: #f58220;
+}
+
+/* STATUS TITLE */
+
+.status-step strong {
+    color: #8b4513;
+    font-size: 17px;
+}
+
+/* STATUS DESCRIPTION */
+
+.status-step p {
+    margin-top: 5px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* CONNECTING LINE */
+
+.status-line {
+    width: 3px;
+    height: 35px;
+    background: #ddd;
+    margin-left: 18px;
+}
+
+/* ACTIVE CONNECTING LINE */
+
+.status-line.active {
+    background: #f58220;
+}
+
+/* PICKUP TIME */
+
+.pickup-box {
+    background: #fff8f0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 25px;
+    border-left: 4px solid #f58220;
+}
+
+.pickup-box strong {
+    color: #8b4513;
+}
+
+.pickup-box p {
+    color: #f58220;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .status-card {
+        padding: 25px 18px;
+    }
+
+    .status-step {
+        gap: 12px;
+    }
+
+    .status-circle {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+    .status-step strong {
+        font-size: 16px;
+    }
+
+    .status-step p {
+        font-size: 13px;
+    }
+
+    .status-line {
+        margin-left: 17px;
+        height: 30px;
+    }
+}
