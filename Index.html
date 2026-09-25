@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UC CampusTech Hub - FoodPreorder</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fffaf5;
+    color: #4b2e1e;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: #f58220;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-links button {
+    background: white;
+    color: #6b3f1d;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-links button:hover {
+    background: #fff0df;
+}
+
+/* ================= GENERAL ================= */
+
+section {
+    padding: 50px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #6b3f1d;
+    margin-bottom: 30px;
+}
+
+/* ================= HOME ================= */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff3e6;
+}
+
+.hero h1 {
+    font-size: 45px;
+    color: #f58220;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 24px;
+    color: #6b3f1d;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #6b6b6b;
+    margin-bottom: 25px;
+}
+
+.main-button {
+    background: #f58220;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.main-button:hover {
+    background: #d96d0d;
+}
+
+/* ================= MENU ================= */
+
+.menu-section {
+    background: white;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.food-card {
+    background: #fffaf5;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.food-card h3 {
+    color: #6b3f1d;
+    margin-bottom: 10px;
+}
+
+.food-price {
+    color: #f58220;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.food-card button {
+    background: #f58220;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ================= CART ================= */
+
+.cart-section {
+    background: #fff8f0;
+    min-height: 500px;
+}
+
+.cart-container {
+    max-width: 750px;
+    margin: auto;
+}
+
+.cart-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-controls button {
+    border: none;
+    background: #f58220;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.remove-button {
+    background: #b83232 !important;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    color: #6b3f1d;
+    margin: 20px 0;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ================= CHECKOUT ================= */
+
+.checkout-section {
+    background: white;
+}
+
+.checkout-card {
+    max-width: 650px;
+    margin: auto;
+    background: #fff8f0;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #6b3f1d;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+/* ================= CONFIRMATION ================= */
+
+.confirmation-section {
+    background: #fff8f0;
+    text-align: center;
+}
+
+.confirmation-card {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.confirmation-card h2 {
+    color: #f58220;
+    margin-bottom: 15px;
+}
+
+.confirmation-card p {
+    margin: 8px 0;
+}
+
+.confirmation-button {
+    margin-top: 20px;
+    background: #f58220;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ================= ORDER STATUS ================= */
+
+.status-section {
+    background: #fff8f0;
+    min-height: 600px;
+}
+
+.status-container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.status-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.status-order-number {
+    text-align: center;
+    font-size: 16px;
+    color: #6b3f1d;
+    margin-bottom: 20px;
+}
+
+.status-order-number strong {
+    color: #f58220;
+}
+
+#statusMessage {
+    text-align: center;
+    color: #6b3f1d;
+    margin-bottom: 35px;
+}
+
+.status-timeline {
+    width: 100%;
+    padding: 0 5px;
+}
+
+.status-item {
+    display: flex;
+    align-items: flex-start;
+    min-height: 75px;
+}
+
+.status-circle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: #eee;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 17px;
+    border: 3px solid #eee;
+}
+
+.status-step.active .status-circle {
+    background: #f58220;
+    color: white;
+    border-color: #f58220;
+}
+
+.status-step > div:last-child {
+    margin-left: 15px;
+    padding-top: 2px;
+}
+
+.status-step strong {
+    display: block;
+    font-size: 17px;
+    color: #5a351b;
+}
+
+.status-step p {
+    margin-top: 5px;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.status-line {
+    width: 3px;
+    height: 35px;
+    background: #ddd;
+    margin-left: 18px;
+}
+
+.status-line.active {
+    background: #f58220;
+}
+
+.pickup-box {
+    background: #fff3e6;
+    border-left: 5px solid #f58220;
+    border-radius: 8px;
+    padding: 15px 18px;
+    margin-top: 20px;
+}
+
+.pickup-box strong {
+    color: #6b3f1d;
+}
+
+.pickup-box p {
+    margin-top: 5px;
+    color: #555;
+}
+
+/* ================= ADMIN DASHBOARD ================= */
+
+.admin-section {
+    background: #fff8f0;
+    min-height: 650px;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-header h2 {
+    color: #f58220;
+    margin-bottom: 8px;
+}
+
+.admin-header p {
+    color: #777;
+}
+
+/* SUMMARY */
+
+.admin-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.summary-card h3 {
+    color: #6b3f1d;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.summary-number {
+    font-size: 28px;
+    color: #f58220;
+    font-weight: bold;
+}
+
+/* ADMIN ORDERS */
+
+.admin-orders-title {
+    color: #6b3f1d;
+    margin-bottom: 15px;
+}
+
+.admin-order-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.admin-order-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.admin-order-number {
+    font-weight: bold;
+    color: #f58220;
+}
+
+.admin-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #fff0df;
+    color: #6b3f1d;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.admin-order-info {
+    line-height: 1.7;
+    color: #555;
+}
+
+.admin-order-info strong {
+    color: #6b3f1d;
+}
+
+.admin-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.admin-action-button {
+    background: #f58220;
+    color: white;
+    border: none;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.admin-action-button:hover {
+    background: #d96d0d;
+}
+
+.admin-action-button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+/* ================= SALES ================= */
+
+.sales-section {
+    background: white;
+    min-height: 650px;
+}
+
+.sales-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sales-header h2 {
+    color: #f58220;
+    margin-bottom: 8px;
+}
+
+.sales-header p {
+    color: #777;
+}
+
+.sales-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.sales-card {
+    background: #fff8f0;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    border: 1px solid #ffe1c4;
+}
+
+.sales-card h3 {
+    color: #6b3f1d;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.sales-value {
+    color: #f58220;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* SALES ORDERS */
+
+.sales-box {
+    background: #fff8f0;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.sales-box h3 {
+    color: #6b3f1d;
+    margin-bottom: 15px;
+}
+
+.sales-row {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sales-row strong {
+    color: #6b3f1d;
+}
+
+.sales-amount {
+    color: #f58220;
+    font-weight: bold;
+}
+
+/* POPULAR ITEMS */
+
+.popular-item {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.popular-item strong {
+    color: #6b3f1d;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #6b3f1d;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-summary,
+    .sales-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-links {
+        gap: 6px;
+    }
+
+    .nav-links button {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-summary,
+    .sales-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sales-row {
+        flex-direction: column;
+    }
+
+    .checkout-card {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        UC CampusTech Hub
+    </div>
+
+    <div class="nav-links">
+
+        <button onclick="goHome()">Home</button>
+
+        <button onclick="goToMenu()">Menu</button>
+
+        <button onclick="goToCart()">
+            Cart (<span id="cartCount">0</span>)
+        </button>
+
+        <button onclick="goToAdmin()">
+            Admin
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+    <div>
+
+        <h1>FoodPreorder</h1>
+
+        <h2>Order ahead. Skip the line.</h2>
+
+        <p>
+            Order your favorite canteen food before going to school.
+        </p>
+
+        <button class="main-button" onclick="goToMenu()">
+            Order Now
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section id="menu" class="menu-section" style="display:none;">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Food Menu
+        </h2>
+
+        <div class="menu-grid">
+
+            <div class="food-card">
+                <h3>Chicken Rice</h3>
+                <div class="food-price">₱75</div>
+                <button onclick="addToCart('Chicken Rice',75)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <h3>Burger</h3>
+                <div class="food-price">₱50</div>
+                <button onclick="addToCart('Burger',50)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <h3>Spaghetti</h3>
+                <div class="food-price">₱60</div>
+                <button onclick="addToCart('Spaghetti',60)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <h3>Fries</h3>
+                <div class="food-price">₱40</div>
+                <button onclick="addToCart('Fries',40)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <h3>Sandwich</h3>
+                <div class="food-price">₱45</div>
+                <button onclick="addToCart('Sandwich',45)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <h3>Iced Tea</h3>
+                <div class="food-price">₱25</div>
+                <button onclick="addToCart('Iced Tea',25)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="food-card">
+                <h3>Bottled Water</h3>
+                <div class="food-price">₱15</div>
+                <button onclick="addToCart('Bottled Water',15)">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+
+<section id="cart" class="cart-section" style="display:none;">
+
+    <div class="cart-container">
+
+        <h2 class="section-title">
+            Your Cart
+        </h2>
+
+        <div id="cartItems"></div>
+
+        <div id="cartTotal" class="cart-total">
+            Total: ₱0
+        </div>
+
+        <div class="cart-actions">
+
+            <button
+                class="main-button"
+                onclick="clearCart()">
+                Clear Cart
+            </button>
+
+            <button
+                class="main-button"
+                onclick="goToCheckout()">
+                Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section id="checkout" class="checkout-section" style="display:none;">
+
+    <div class="checkout-card">
+
+        <h2 class="section-title">
+            Checkout
+        </h2>
+
+        <form id="checkoutForm">
+
+            <div class="form-group">
+
+                <label>
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Use a sample ID for prototype"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Course / Section
+                </label>
+
+                <input
+                    type="text"
+                    id="courseSection"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Contact Number
+                </label>
+
+                <input
+                    type="text"
+                    id="contactNumber"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Pickup Time
+                </label>
+
+                <input
+                    type="time"
+                    id="pickupTime"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="main-button">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONFIRMATION ================= -->
+
+<section id="confirmation"
+         class="confirmation-section"
+         style="display:none;">
+
+    <div class="confirmation-card">
+
+        <h2>Order Confirmed!</h2>
+
+        <p>
+            Thank you for using FoodPreorder.
+        </p>
+
+        <p>
+            Your Order Number:
+        </p>
+
+        <h2 id="confirmationOrderNumber">
+            --
+        </h2>
+
+        <p>
+            Please check your order status for updates.
+        </p>
+
+        <button
+            type="button"
+            class="confirmation-button"
+            onclick="showOrderStatus()">
+            View Order Status
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDER STATUS ================= -->
+
+<section id="orderStatus"
+         class="status-section"
+         style="display:none;">
+
+    <div class="status-container">
+
+        <h2 class="section-title">
+            Order Status
+        </h2>
+
+        <div class="status-card">
+
+            <div class="status-order-number">
+                Order Number:
+                <strong id="statusOrderNumber">--</strong>
+            </div>
+
+            <p id="statusMessage">
+                Your order has been received.
+            </p>
+
+
+            <div class="status-timeline">
+
+                <div
+                    id="statusReceived"
+                    class="status-step status-item active">
+
+                    <div class="status-circle">
+                        1
+                    </div>
+
+                    <div>
+                        <strong>Order Received</strong>
+                        <p>
+                            Your order has been received by the canteen.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="linePreparing"
+                    class="status-line">
+                </div>
+
+
+                <div
+                    id="statusPreparing"
+                    class="status-step status-item">
+
+                    <div class="status-circle">
+                        2
+                    </div>
+
+                    <div>
+                        <strong>Preparing</strong>
+                        <p>
+                            The canteen is preparing your food.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="lineReady"
+                    class="status-line">
+                </div>
+
+
+                <div
+                    id="statusReady"
+                    class="status-step status-item">
+
+                    <div class="status-circle">
+                        3
+                    </div>
+
+                    <div>
+                        <strong>Ready for Pickup</strong>
+                        <p>
+                            Your food is ready to be picked up.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="lineCompleted"
+                    class="status-line">
+                </div>
+
+
+                <div
+                    id="statusCompleted"
+                    class="status-step status-item">
+
+                    <div class="status-circle">
+                        4
+                    </div>
+
+                    <div>
+                        <strong>Completed</strong>
+                        <p>
+                            Your order has been completed.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="pickup-box">
+
+                <strong>Pickup Information</strong>
+
+                <p id="pickupInformation">
+                    Please wait for your order to become ready.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ADMIN DASHBOARD ================= -->
+
+<section id="adminDashboard"
+         class="admin-section"
+         style="display:none;">
+
+    <div class="container">
+
+        <div class="admin-header">
+
+            <h2>
+                Canteen/Admin Dashboard
+            </h2>
+
+            <p>
+                Manage incoming orders and update their status.
+            </p>
+
+        </div>
+
+
+        <!-- ADMIN SUMMARY -->
+
+        <div class="admin-summary">
+
+            <div class="summary-card">
+
+                <h3>Pending Orders</h3>
+
+                <div
+                    id="pendingCount"
+                    class="summary-number">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h3>Preparing</h3>
+
+                <div
+                    id="preparingCount"
+                    class="summary-number">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h3>Ready for Pickup</h3>
+
+                <div
+                    id="readyCount"
+                    class="summary-number">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h3>Completed</h3>
+
+                <div
+                    id="completedCount"
+                    class="summary-number">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h3 class="admin-orders-title">
+            Incoming Orders
+        </h3>
+
+        <div id="adminOrdersList"></div>
+
+
+        <!-- GO TO SALES -->
+
+        <div style="text-align:center; margin-top:25px;">
+
+            <button
+                class="main-button"
+                onclick="goToSales()">
+                View Sales
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ADMIN SALES ================= -->
+
+<section id="adminSales"
+         class="sales-section"
+         style="display:none;">
+
+    <div class="container">
+
+        <div class="sales-header">
+
+            <h2>
+                Admin/Sales
+            </h2>
+
+            <p>
+                View your order and sales summary.
+            </p>
+
+        </div>
+
+
+        <!-- SALES SUMMARY -->
+
+        <div class="sales-summary">
+
+            <div class="sales-card">
+
+                <h3>Total Sales</h3>
+
+                <div
+                    id="totalSales"
+                    class="sales-value">
+                    ₱0
+                </div>
+
+            </div>
+
+
+            <div class="sales-card">
+
+                <h3>Total Orders</h3>
+
+                <div
+                    id="totalOrders"
+                    class="sales-value">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="sales-card">
+
+                <h3>Completed Orders</h3>
+
+                <div
+                    id="salesCompletedOrders"
+                    class="sales-value">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="sales-card">
+
+                <h3>Pending Orders</h3>
+
+                <div
+                    id="salesPendingOrders"
+                    class="sales-value">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SALES HISTORY -->
+
+        <div class="sales-box">
+
+            <h3>
+                Completed Sales
+            </h3>
+
+            <div id="salesHistory"></div>
+
+        </div>
+
+
+        <!-- POPULAR ITEMS -->
+
+        <div class="sales-box">
+
+            <h3>
+                Popular Items
+            </h3>
+
+            <div id="popularItems"></div>
+
+        </div>
+
+
+        <div style="text-align:center;">
+
+            <button
+                class="main-button"
+                onclick="goToAdmin()">
+                Back to Admin Dashboard
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        UC CampusTech Hub
+    </p>
+
+    <p>
+        FoodPreorder
+    </p>
+
+    <p>
+        Order ahead. Skip the line.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart = [];
+
+
+/* =====================================================
+   CURRENT ORDER
+===================================================== */
+
+let currentOrder = null;
+
+
+/* =====================================================
+   ADMIN ORDERS
+===================================================== */
+
+let adminOrders = [];
+
+
+/* =====================================================
+   ORDER NUMBER
+===================================================== */
+
+let orderCounter = 1001;
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(name, price) {
+
+    const existingItem = cart.find(
+        item => item.name === name
+    );
+
+    if (existingItem) {
+
+        existingItem.quantity++;
+
+    } else {
+
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    goToCart();
+}
+
+
+/* =====================================================
+   UPDATE CART
+===================================================== */
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+
+    cartItems.innerHTML = "";
+
+
+    let total = 0;
+    let itemCount = 0;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <div class="cart-card">
+                <p style="text-align:center;">
+                    Your cart is empty.
+                </p>
+            </div>
+        `;
+
+    }
+
+
+    cart.forEach((item, index) => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+        total += itemTotal;
+
+        itemCount += item.quantity;
+
+
+        cartItems.innerHTML += `
+
+            <div class="cart-card">
+
+                <div class="cart-row">
+
+                    <div>
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+                        <p>
+                            ₱${item.price} each
+                        </p>
+
+                        <p>
+                            Subtotal: ₱${itemTotal}
+                        </p>
+
+                    </div>
+
+
+                    <div class="quantity-controls">
+
+                        <button
+                            onclick="changeQuantity(${index}, -1)">
+                            -
+                        </button>
+
+                        <strong>
+                            ${item.quantity}
+                        </strong>
+
+                        <button
+                            onclick="changeQuantity(${index}, 1)">
+                            +
+                        </button>
+
+                        <button
+                            class="remove-button"
+                            onclick="removeItem(${index})">
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+    });
+
+
+    cartCount.textContent = itemCount;
+
+    cartTotal.textContent =
+        `Total: ₱${total}`;
+}
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQuantity(index, amount) {
+
+    cart[index].quantity += amount;
+
+
+    if (cart[index].quantity <= 0) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    updateCart();
+}
+
+
+/* =====================================================
+   REMOVE ITEM
+===================================================== */
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+
+/* =====================================================
+   CLEAR CART
+===================================================== */
+
+function clearCart() {
+
+    cart = [];
+
+    updateCart();
+}
+
+
+/* =====================================================
+   GET CART TOTAL
+===================================================== */
+
+function getCartTotal() {
+
+    return cart.reduce(
+        (total, item) =>
+            total + (item.price * item.quantity),
+        0
+    );
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function hideAllSections() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("cart").style.display = "none";
+    document.getElementById("checkout").style.display = "none";
+    document.getElementById("confirmation").style.display = "none";
+    document.getElementById("orderStatus").style.display = "none";
+    document.getElementById("adminDashboard").style.display = "none";
+    document.getElementById("adminSales").style.display = "none";
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function goHome() {
+
+    hideAllSections();
+
+    document.getElementById("home").style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function goToMenu() {
+
+    hideAllSections();
+
+    document.getElementById("menu").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   CART PAGE
+===================================================== */
+
+function goToCart() {
+
+    hideAllSections();
+
+    document.getElementById("cart").style.display = "block";
+
+    updateCart();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+function goToCheckout() {
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+
+    hideAllSections();
+
+    document.getElementById("checkout").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+
+function goToAdmin() {
+
+    hideAllSections();
+
+    document.getElementById("adminDashboard").style.display = "block";
+
+    renderAdminDashboard();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   SALES PAGE
+===================================================== */
+
+function goToSales() {
+
+    hideAllSections();
+
+    document.getElementById("adminSales").style.display = "block";
+
+    renderSalesDashboard();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   SHOW ORDER STATUS
+===================================================== */
+
+function showOrderStatus() {
+
+    if (!currentOrder) {
+
+        alert("No active order found.");
+
+        return;
+    }
+
+
+    hideAllSections();
+
+    document.getElementById("orderStatus").style.display = "block";
+
+    updateOrderStatus();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   CHECKOUT FORM
+===================================================== */
+
+document
+.getElementById("checkoutForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    if (cart.length === 0) {
+
+        alert("Your cart is empty.");
+
+        return;
+    }
+
+
+    const studentName =
+        document.getElementById("studentName").value;
+
+    const studentId =
+        document.getElementById("studentId").value;
+
+    const courseSection =
+        document.getElementById("courseSection").value;
+
+    const contactNumber =
+        document.getElementById("contactNumber").value;
+
+    const pickupTime =
+        document.getElementById("pickupTime").value;
+
+
+    const orderNumber =
+        "FP-" + orderCounter;
+
+
+    orderCounter++;
+
+
+    currentOrder = {
+
+        orderNumber: orderNumber,
+
+        studentName: studentName,
+
+        studentId: studentId,
+
+        courseSection: courseSection,
+
+        contactNumber: contactNumber,
+
+        pickupTime: pickupTime,
+
+        items: JSON.parse(
+            JSON.stringify(cart)
+        ),
+
+        total: getCartTotal(),
+
+        status: "Order Received"
+
+    };
+
+
+    /* Add order to Admin Dashboard */
+
+    adminOrders.push(currentOrder);
+
+
+    /* Clear cart */
+
+    cart = [];
+
+    updateCart();
+
+
+    /* Show confirmation */
+
+    showConfirmation();
+
+});
+
+
+/* =====================================================
+   SHOW CONFIRMATION
+===================================================== */
+
+function showConfirmation() {
+
+    hideAllSections();
+
+    document.getElementById("confirmation").style.display = "block";
+
+
+    document.getElementById(
+        "confirmationOrderNumber"
+    ).textContent = currentOrder.orderNumber;
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =====================================================
+   UPDATE STUDENT ORDER STATUS
+===================================================== */
+
+function updateOrderStatus() {
+
+    if (!currentOrder) {
+        return;
+    }
+
+
+    const status =
+        currentOrder.status;
+
+
+    const received =
+        document.getElementById("statusReceived");
+
+    const preparing =
+        document.getElementById("statusPreparing");
+
+    const ready =
+        document.getElementById("statusReady");
+
+    const completed =
+        document.getElementById("statusCompleted");
+
+
+    const linePreparing =
+        document.getElementById("linePreparing");
+
+    const lineReady =
+        document.getElementById("lineReady");
+
+    const lineCompleted =
+        document.getElementById("lineCompleted");
+
+
+    received.classList.remove("active");
+    preparing.classList.remove("active");
+    ready.classList.remove("active");
+    completed.classList.remove("active");
+
+    linePreparing.classList.remove("active");
+    lineReady.classList.remove("active");
+    lineCompleted.classList.remove("active");
+
+
+    received.classList.add("active");
+
+
+    if (status === "Preparing") {
+
+        preparing.classList.add("active");
+
+        linePreparing.classList.add("active");
+
+    }
+
+
+    if (status === "Ready for Pickup") {
+
+        preparing.classList.add("active");
+        ready.classList.add("active");
+
+        linePreparing.classList.add("active");
+        lineReady.classList.add("active");
+
+    }
+
+
+    if (status === "Completed") {
+
+        preparing.classList.add("active");
+        ready.classList.add("active");
+        completed.classList.add("active");
+
+        linePreparing.classList.add("active");
+        lineReady.classList.add("active");
+        lineCompleted.classList.add("active");
+
+    }
+
+
+    document.getElementById(
+        "statusOrderNumber"
+    ).textContent = currentOrder.orderNumber;
+
+
+    const statusMessage =
+        document.getElementById("statusMessage");
+
+
+    const pickupInformation =
+        document.getElementById("pickupInformation");
+
+
+    if (status === "Order Received") {
+
+        statusMessage.textContent =
+            "Your order has been received by the canteen.";
+
+        pickupInformation.textContent =
+            "Please wait while the canteen prepares your order.";
+
+    }
+
+
+    if (status === "Preparing") {
+
+        statusMessage.textContent =
+            "Your food is currently being prepared.";
+
+        pickupInformation.textContent =
+            "Your order is being prepared. Please wait for the next update.";
+
+    }
+
+
+    if (status === "Ready for Pickup") {
+
+        statusMessage.textContent =
+            "Your food is ready for pickup!";
+
+        pickupInformation.textContent =
+            "Please go to the canteen and pick up your order.";
+
+    }
+
+
+    if (status === "Completed") {
+
+        statusMessage.textContent =
+            "Your order has been completed.";
+
+        pickupInformation.textContent =
+            "Thank you for using FoodPreorder!";
+
+    }
+
+}
+
+
+/* =====================================================
+   ADMIN DASHBOARD RENDER
+===================================================== */
+
+function renderAdminDashboard() {
+
+    const pending =
+        adminOrders.filter(
+            order => order.status === "Order Received"
+        ).length;
+
+
+    const preparing =
+        adminOrders.filter(
+            order => order.status === "Preparing"
+        ).length;
+
+
+    const ready =
+        adminOrders.filter(
+            order => order.status === "Ready for Pickup"
+        ).length;
+
+
+    const completed =
+        adminOrders.filter(
+            order => order.status === "Completed"
+        ).length;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent = pending;
+
+
+    document.getElementById(
+        "preparingCount"
+    ).textContent = preparing;
+
+
+    document.getElementById(
+        "readyCount"
+    ).textContent = ready;
+
+
+    document.getElementById(
+        "completedCount"
+    ).textContent = completed;
+
+
+    const ordersList =
+        document.getElementById("adminOrdersList");
+
+
+    ordersList.innerHTML = "";
+
+
+    if (adminOrders.length === 0) {
+
+        ordersList.innerHTML = `
+
+            <div class="admin-order-card">
+
+                <p style="text-align:center;">
+                    No orders yet.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    adminOrders.forEach((order, index) => {
+
+        const itemsText =
+            order.items
+            .map(
+                item =>
+                    `${item.name} ×${item.quantity}`
+            )
+            .join(", ");
+
+
+        let actionButton = "";
+
+
+        if (order.status === "Order Received") {
+
+            actionButton = `
+
+                <button
+                    class="admin-action-button"
+                    onclick="updateAdminOrderStatus(${index}, 'Preparing')">
+                    Start Preparing
+                </button>
+
+            `;
+
+        }
+
+
+        else if (order.status === "Preparing") {
+
+            actionButton = `
+
+                <button
+                    class="admin-action-button"
+                    onclick="updateAdminOrderStatus(${index}, 'Ready for Pickup')">
+                    Mark Ready
+                </button>
+
+            `;
+
+        }
+
+
+        else if (order.status === "Ready for Pickup") {
+
+            actionButton = `
+
+                <button
+                    class="admin-action-button"
+                    onclick="updateAdminOrderStatus(${index}, 'Completed')">
+                    Mark Completed
+                </button>
+
+            `;
+
+        }
+
+
+        else {
+
+            actionButton = `
+
+                <button
+                    class="admin-action-button"
+                    disabled>
+                    Completed ✓
+                </button>
+
+            `;
+
+        }
+
+
+        ordersList.innerHTML += `
+
+            <div class="admin-order-card">
+
+                <div class="admin-order-top">
+
+                    <div class="admin-order-number">
+
+                        ${order.orderNumber}
+
+                    </div>
+
+                    <div class="admin-status">
+
+                        ${order.status}
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-order-info">
+
+                    <p>
+                        <strong>Student:</strong>
+                        ${order.studentName}
+                    </p>
+
+                    <p>
+                        <strong>Student ID:</strong>
+                        ${order.studentId}
+                    </p>
+
+                    <p>
+                        <strong>Course/Section:</strong>
+                        ${order.courseSection}
+                    </p>
+
+                    <p>
+                        <strong>Items:</strong>
+                        ${itemsText}
+                    </p>
+
+                    <p>
+                        <strong>Pickup:</strong>
+                        ${order.pickupTime}
+                    </p>
+
+                    <p>
+                        <strong>Total:</strong>
+                        ₱${order.total}
+                    </p>
+
+                </div>
+
+
+                <div class="admin-actions">
+
+                    ${actionButton}
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   UPDATE ADMIN ORDER STATUS
+===================================================== */
+
+function updateAdminOrderStatus(index, newStatus) {
+
+    if (!adminOrders[index]) {
+        return;
+    }
+
+
+    adminOrders[index].status =
+        newStatus;
+
+
+    /*
+       If this is the student's current order,
+       update the student Order Status too.
+    */
+
+    if (
+        currentOrder &&
+        adminOrders[index].orderNumber ===
+        currentOrder.orderNumber
+    ) {
+
+        currentOrder.status =
+            newStatus;
+
+        updateOrderStatus();
+
+    }
+
+
+    renderAdminDashboard();
+
+}
+
+
+/* =====================================================
+   SALES DASHBOARD
+===================================================== */
+
+function renderSalesDashboard() {
+
+    /*
+       Total orders
+    */
+
+    const totalOrders =
+        adminOrders.length;
+
+
+    /*
+       Completed orders
+    */
+
+    const completedOrders =
+        adminOrders.filter(
+            order => order.status === "Completed"
+        );
+
+
+    /*
+       Pending orders
+    */
+
+    const pendingOrders =
+        adminOrders.filter(
+            order => order.status !== "Completed"
+        );
+
+
+    /*
+       Total sales
+       Only completed orders count as sales.
+    */
+
+    const totalSales =
+        completedOrders.reduce(
+            (total, order) =>
+                total + order.total,
+            0
+        );
+
+
+    document.getElementById(
+        "totalSales"
+    ).textContent =
+        `₱${totalSales}`;
+
+
+    document.getElementById(
+        "totalOrders"
+    ).textContent =
+        totalOrders;
+
+
+    document.getElementById(
+        "salesCompletedOrders"
+    ).textContent =
+        completedOrders.length;
+
+
+    document.getElementById(
+        "salesPendingOrders"
+    ).textContent =
+        pendingOrders.length;
+
+
+    renderSalesHistory(completedOrders);
+
+    renderPopularItems(completedOrders);
+
+}
+
+
+/* =====================================================
+   SALES HISTORY
+===================================================== */
+
+function renderSalesHistory(completedOrders) {
+
+    const salesHistory =
+        document.getElementById("salesHistory");
+
+
+    salesHistory.innerHTML = "";
+
+
+    if (completedOrders.length === 0) {
+
+        salesHistory.innerHTML = `
+
+            <p>
+                No completed sales yet.
+            </p>
+
+        `;
+
+        return;
+    }
+
+
+    completedOrders.forEach(order => {
+
+        salesHistory.innerHTML += `
+
+            <div class="sales-row">
+
+                <div>
+
+                    <strong>
+                        ${order.orderNumber}
+                    </strong>
+
+                    <br>
+
+                    ${order.studentName}
+
+                </div>
+
+
+                <div class="sales-amount">
+
+                    ₱${order.total}
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   POPULAR ITEMS
+===================================================== */
+
+function renderPopularItems(completedOrders) {
+
+    const popularItems =
+        document.getElementById("popularItems");
+
+
+    popularItems.innerHTML = "";
+
+
+    if (completedOrders.length === 0) {
+
+        popularItems.innerHTML = `
+
+            <p>
+                No completed items yet.
+            </p>
+
+        `;
+
+        return;
+    }
+
+
+    const itemCounts = {};
+
+
+    completedOrders.forEach(order => {
+
+        order.items.forEach(item => {
+
+            if (!itemCounts[item.name]) {
+
+                itemCounts[item.name] = 0;
+
+            }
+
+
+            itemCounts[item.name] +=
+                item.quantity;
+
+        });
+
+    });
+
+
+    const sortedItems =
+        Object.entries(itemCounts)
+        .sort(
+            (a, b) => b[1] - a[1]
+        );
+
+
+    sortedItems.forEach(item => {
+
+        popularItems.innerHTML += `
+
+            <div class="popular-item">
+
+                <strong>
+                    ${item[0]}
+                </strong>
+
+                <span>
+                    ${item[1]} sold
+                </span>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
